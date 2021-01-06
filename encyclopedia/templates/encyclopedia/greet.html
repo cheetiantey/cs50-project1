@@ -1,0 +1,32 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <!---
+    <h1>        
+        {% if entry %}
+            {{ title }}
+
+        {% else %}
+            Error
+        {% endif %}
+    </h1>
+    -->
+    <ul>
+        {% if entry %}
+            {{ entry |safe}}
+
+        {% else %}
+            Not found
+        {% endif %}
+    </ul>
+    <!-- <form action="{% url 'edit' title %}" method="POST">
+        {% csrf_token %} 
+        <button type="submit" name="edit" value="{{  title  }}">Edit</button>
+    </form>  --> 
+
+    <a href = "/edit/{{ title }}">Edit</a>
+{% endblock %}
